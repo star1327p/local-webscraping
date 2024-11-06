@@ -1,7 +1,7 @@
 library(rvest)
 
 # Webpage URL: https://nrp.web.irs.gov/1040-study.html#tab=tab1
-nrp_page = read_html("~/Test_Files/score20-drafts/NRP_1040_Study_Webpage.html")
+nrp_page = read_html("NRP_1040_Study_Webpage.html")
 tbl_elt = nrp_page %>% html_element("table") %>% html_table()
 names(tbl_elt) = c("StudyYear","SampleSize","PercentComplete")
 tbl_elt$SampleSize = as.numeric(gsub(",","",tbl_elt$SampleSize))
